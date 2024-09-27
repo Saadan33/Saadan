@@ -1,0 +1,11 @@
+def word_counter(text):
+    # Remove any leading/trailing spaces and split the text into words
+    words = text.strip().split()
+    # Return the length of the list of words
+    return len(words)
+
+# Input from the user
+text_input = input("Enter your text: ")
+
+# Call the function and print the result
+print(f"Word count: {word_counter(text_input)}")
