@@ -1,0 +1,51 @@
+# Simple Expense Tracker
+
+# List to store expenses
+expenses = []
+
+# Function to add an expense
+def add_expense():
+    name = input("Enter the expense name: ")
+    amount = float(input("Enter the expense amount: "))
+    expenses.append((name, amount))
+    print(f"Expense added: {name} - ${amount:.2f}\n")
+
+# Function to view all expenses
+def view_expenses():
+    if not expenses:
+        print("No expenses added yet.\n")
+    else:
+        print("Expenses:")
+        for name, amount in expenses:
+            print(f"{name}: ${amount:.2f}")
+        print()
+
+# Function to calculate total expenses
+def total_expenses():
+    total = sum(amount for name, amount in expenses)
+    print(f"Total Expenses: ${total:.2f}\n")
+
+# Main function
+def expense_tracker():
+    while True:
+        print("1. Add Expense")
+        print("2. View Expenses")
+        print("3. Calculate Total")
+        print("4. Quit")
+        choice = input("Choose an option (1-4): ")
+
+        if choice == "1":
+            add_expense()
+        elif choice == "2":
+            view_expenses()
+        elif choice == "3":
+            total_expenses()
+        elif choice == "4":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice, please try again.\n")
+
+# Run the expense tracker
+if __name__ == "__main__":
+    expense_tracker()
