@@ -1,0 +1,25 @@
+import random
+import string
+
+def generate_password(length=12, use_uppercase=True, use_digits=True, use_special_chars=True):
+    # Create a pool of characters to choose from
+    lowercase = string.ascii_lowercase
+    uppercase = string.ascii_uppercase if use_uppercase else ''
+    digits = string.digits if use_digits else ''
+    special_chars = string.punctuation if use_special_chars else ''
+    
+    # Combine all chosen character sets
+    all_characters = lowercase + uppercase + digits + special_chars
+    
+    if len(all_characters) == 0:
+        raise ValueError("At least one character set must be selected.")
+    
+    # Generate a random password
+    password = ''.join(random.choice(all_characters) for _ in range(length))
+    return password
+
+# Example usage
+if __name__ == "__main__":
+    password_length = int(input("Enter the desired password length: "))
+    password = generate_password(length=password_length)
+    print("Generated Password:", password)
